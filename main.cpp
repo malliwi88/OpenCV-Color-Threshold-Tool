@@ -3,9 +3,7 @@
 
 using namespace cv;
 
-// Warning, don't use in production
-
-/// globals
+/// Global Variables
 const int maxRGB = 255;
 
 int min_BGR[3];
@@ -29,7 +27,7 @@ Mat color_filter(Mat mat) {
 void on_trackbar( int, void* )
 {
 
-  imshow( "Color Threshold",  color_filter(src) );
+  imshow( "Image Threshold",  color_filter(src) );
 }
 
 int main( int argc, char** argv )
@@ -51,18 +49,22 @@ int main( int argc, char** argv )
  }
 
  /// Create Windows
- namedWindow("Color Threshold", 1);
+ namedWindow("Image", WINDOW_AUTOSIZE);
+ namedWindow("Image Threshold", WINDOW_AUTOSIZE);
+ namedWindow("Color Threshold", WINDOW_AUTOSIZE);
+
+ moveWindow("Image", 100, 25);
 
  // create trackbars for color change
- createTrackbar ("mB", "Color Threshold", &min_BGR[0], maxRGB, on_trackbar);
- createTrackbar ("mG", "Color Threshold", &min_BGR[1], maxRGB, on_trackbar);
- createTrackbar ("mR", "Color Threshold", &min_BGR[2], maxRGB, on_trackbar);
+ createTrackbar ("Min B", "Color Threshold", &min_BGR[0], maxRGB, on_trackbar);
+ createTrackbar ("Min G", "Color Threshold", &min_BGR[1], maxRGB, on_trackbar);
+ createTrackbar ("Min R", "Color Threshold", &min_BGR[2], maxRGB, on_trackbar);
 
- createTrackbar ("xB", "Color Threshold", &max_BGR[0], maxRGB, on_trackbar);
- createTrackbar ("xG", "Color Threshold", &max_BGR[1], maxRGB, on_trackbar);
- createTrackbar ("xR", "Color Threshold", &max_BGR[2], maxRGB, on_trackbar);
- 
- // call to show image
+ createTrackbar ("Max B", "Color Threshold", &max_BGR[0], maxRGB, on_trackbar);
+ createTrackbar ("Max G", "Color Threshold", &max_BGR[1], maxRGB, on_trackbar);
+ createTrackbar ("Max R", "Color Threshold", &max_BGR[2], maxRGB, on_trackbar);
+
+ imshow("Image", src);
  on_trackbar(0,0);
 
  /// Wait until user press some key
