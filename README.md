@@ -13,3 +13,4 @@ The trailing optional args after the path are the minimum and maximum BGR values
  * HSV
  * HSV and RGB Histograph
  * Contour filtering
+ * Histogram Equalization
