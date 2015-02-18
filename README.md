@@ -8,3 +8,8 @@ The trailing optional args after the path are the minimum and maximum BGR values
 
 
 ![Screenshot](http://i.imgur.com/2zH8IWP.png)
+
+## TODO
+ * HSV
+ * HSV and RGB Histograph
+ * Contour filtering
